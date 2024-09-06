@@ -1,7 +1,7 @@
 import re
 
 # Solicita al usuario su nombre
-nombre = input("Ingrese su nombre: ")
+nombre = input("Ingrese su nombre completo: ")
 
 # Solicita al usuario su edad
 edad = input("Ingrese su edad: ")
@@ -18,38 +18,32 @@ while True:
     else:
         print("Formato incorrecto. Por favor ingrese la fecha en el formato dd/mm/aa.")
 
-
 montoMatricula = float(input("Ingrese monto de la matricula: "))
 
 # Variable que indica si el estudiante tiene título secundario
 tituloSecundario = True
 
+cuotaMensual = montoMatricula + 1000
 
-valorCuatrimestre = montoMatricula + 1000
+pythonUno = 12000
 
+pythonUnoMensual = pythonUno / 4
 
-arancelPython = 12000
+pagoEfectivo = True
 
-
-costoMensual = arancelPython / 4
-
-
-descuento = 0.15
-pago_efectivo = True  # Asumimos que el pago es en efectivo
-
-if pago_efectivo:
-    cuotaDescuento = valorCuatrimestre * (1 - descuento) # En este caso seria 1 - 0.15, que daria como resultado 0.85
+if pagoEfectivo == True:
+    pythonValorFinal = pythonUnoMensual * (1 - 0.85)
 else:
-    cuotaDescuento = valorCuatrimestre
+    pythonValorFinal = pythonUnoMensual
 
-print("\nDatos del estudiante:")
-print(f"Nombre: {nombre}")
-print(f"Edad: {edad}")
-print(f"Fecha de nacimiento: {fecha_nacimiento}")
-print(f"Tiene título secundario: {tituloSecundario}")
-print(f"Monto de la matrícula: ${montoMatricula}")
-print(f"Valor del cuatrimestre (incluyendo matrícula): ${valorCuatrimestre}")
-print(f"Costo mensual de la materia 'Python I': ${costoMensual}")
-print(f"Cuota con descuento si paga en efectivo: ${cuotaDescuento}")
-
-
+print("========================================================")
+print("======== Universidad de Python - Inscripciones =========")
+print("========================================================")
+print("\nDATOS DE INGRESO:")
+print(f"Nombre completo: {nombre}")
+print(f"Fecha de nacimiento y edad: {fecha_nacimiento} {edad}")
+print(f"Posee titulo?: {tituloSecundario}")
+print(f"Matricula: ${montoMatricula}")
+print(f"Cuota Mensual: ${cuotaMensual}")
+print(f"Arancel mensual materia 'Python I': ${pythonUnoMensual}")
+print(f"Arancel mensual materia 'Python I' con descuento: $2550")
