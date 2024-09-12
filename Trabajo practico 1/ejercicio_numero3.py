@@ -8,6 +8,7 @@ diaSemanas = {
 }
 
 print("============================= AULAS ==============================")
+
 try:
     num = int(input("Ingrese el numero del dia: 1 (Lunes) a 6 (Sabado): "))
 
@@ -32,29 +33,51 @@ except ValueError:
 
 print("================= Descuento y estacionamientos =================")
 
-turnos: {
+turnos = {
     "maniana",
     "mañana",
     "tarde",
     "noche"
 }
 
-materiasCursadas = int(input("Ingrese la cantidad de materias a las que desearia anotarse."))
-
-cuota = 12000
-
 try:
-    turno = input("Ingrese el turno: mañana, tarde o noche. ")
-    inputMinuscula = turno.lower()
+    materiasCursadas = int(input("Ingrese la cantidad de materias a las que desearía anotarse: "))
     
-    if inputMinuscula in turnos:
-        if inputMinuscula == "tarde" and materiasCursadas == 3:
+    cuota = 12000
+    
+    turno = input("Ingrese el turno: mañana, tarde o noche: ").lower()
+    
+    if turno in turnos:
+        if turno == "tarde" and materiasCursadas == 3:
             descuento = 0.25
             cuotaDescuento = cuota * (1 - descuento)
         else:
             descuento = 0.05
             cuotaDescuento = cuota * (1 - descuento)
+        print(f"La cuota con descuento es: {cuotaDescuento}")
     else:
         print("El turno ingresado es incorrecto.")
 except ValueError:
-    print("Debe ingresar uno de los siguientes turnos: mañana, tarde o noche.")
+    print("Debe ingresar un número válido para la cantidad de materias.")
+
+
+vehiculosDisponibles = {
+    "Motos", 
+    "Autos",
+    "Bicicleta"
+}
+
+try:
+    vehiculoUsado = input("Ingrese el vehículo en el que ingresa: Auto, Moto o Bicicleta: ").lower()
+
+    if vehiculoUsado in vehiculosDisponibles:
+        if vehiculoUsado == "moto":
+            print("El costo de estacionamiento para moto es: $300.")
+        elif vehiculoUsado == "auto":
+            print("El costo de estacionamiento para auto es de: $300.")
+        else: 
+            print("El costo de estacionamiento de la bicicleta es de: $50.")
+    else:
+        print("Vehículo no encontrado. Por favor ingrese uno de los vehículos disponibles: Auto, Moto o Bicicleta.")
+except ValueError:
+    print("Entrada no válida. Por favor ingrese un valor correcto.")
