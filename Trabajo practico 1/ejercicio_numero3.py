@@ -7,6 +7,7 @@ diaSemanas = {
     6: "Sabado"
 }
 
+print("============================= AULAS ==============================")
 try:
     num = int(input("Ingrese el numero del dia: 1 (Lunes) a 6 (Sabado): "))
 
@@ -27,3 +28,33 @@ try:
 except ValueError:
     
     print("Entrada no valida. Por favor, ingrese un numero entero.")
+
+
+print("================= Descuento y estacionamientos =================")
+
+turnos: {
+    "maniana",
+    "mañana",
+    "tarde",
+    "noche"
+}
+
+materiasCursadas = int(input("Ingrese la cantidad de materias a las que desearia anotarse."))
+
+cuota = 12000
+
+try:
+    turno = input("Ingrese el turno: mañana, tarde o noche. ")
+    inputMinuscula = turno.lower()
+    
+    if inputMinuscula in turnos:
+        if inputMinuscula == "tarde" and materiasCursadas == 3:
+            descuento = 0.25
+            cuotaDescuento = cuota * (1 - descuento)
+        else:
+            descuento = 0.05
+            cuotaDescuento = cuota * (1 - descuento)
+    else:
+        print("El turno ingresado es incorrecto.")
+except ValueError:
+    print("Debe ingresar uno de los siguientes turnos: mañana, tarde o noche.")
