@@ -8,5 +8,5 @@ def fechaValida(num1:int, num2:int, num3:int)->bool:
         print(False)
     
 
-fechaValida(20, 3, 2025)
+fechaValida(20, 3, 2000)
 
